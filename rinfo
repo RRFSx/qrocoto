@@ -37,13 +37,7 @@ echo "ok, work on ${xmlfile}.xml..."
 ### to check whether this is a retro (non-realtime) workflow
 retro=$(grep 'workflow.*realtime="T"' ${xmlfile}.xml)
 if [ -z "$retro" ] ; then
-  all=$(rocotostat -w ${xmlfile}.xml -d ${xmlfile}.db -s | tail -n +2 | cut -c1-12 | xargs -n 6)
-  CDATE=${all:0:12}
-  EDATE=${all:(-12)}
-  echo "This is a retro workflow, the first cycle= ${CDATE} 
-the last cycle= ${EDATE} and the most recent active cycle=  ${ADATE}
-For retros, the first cycle will be regarded as the current cycle by qrocoto"
-
+  rocotostat -w ${xmlfile}.xml -d ${xmlfile}.db -s
 else
   echo "This is realtime workflow, current cyle= ${CDATE}"
 fi
