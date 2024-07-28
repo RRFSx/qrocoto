@@ -65,7 +65,9 @@ echo "ok, work on ${xmlfile}.xml..."
 if [[ -z "${cycles}" ]]; then # use current cycle or apply offset
   retro=$(grep 'workflow.*realtime="T"' ${xmlfile}.xml)
   if [ -z "${retro}" ] ; then
-    all=$(rocotostat -w ${xmlfile}.xml -d ${xmlfile}.db -s | tail -n +2 | cut -c1-12 | xargs -n 6)
+    fname="/tmp/qrocoto_$(uuidgen).txt"
+    rocotostat -w ${xmlfile}.xml -d ${xmlfile}.db -s > ${fname}
+    all=$( cat ${fname} | tail -n +2 | cut -c1-12 | xargs -n 6)
     #echo ${all}
     cycles=${all:0:12}
     echo "For retros, curret cycle=first cycle= ${cycles} "
