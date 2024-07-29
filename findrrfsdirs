@@ -1,0 +1,31 @@
+#!/bin/bash
+# find rrfs directories for an experiment
+# by Guoqing Ge, 2024/07
+#
+if [[ -s exp.setup ]]; then
+  # this is the expdir
+  source exp.setup
+  echo "expdir: ${EXPDIR}"
+  echo "com: ${COMROOT}/${NET}/${VERSION}"
+  echo "stmp: ${DATAROOT}/${NET}/${VERSION}"
+else
+  pwd=${PWD}
+  if [[ "${pwd}" == */logs/* ]]; then
+    echo "logs: ${pwd}"
+    com=${pwd/\/logs/}
+    echo "com: ${com}"
+    echo "stmp: ${com/com/stmp}"
+  elif [[ "${pwd}" == */com/* ]]; then
+    log=${pwd/\/rrfs./\/logs\/rrfs.}
+    echo "logs: ${log}"
+    echo "com: ${pwd}"
+    echo "stmp: ${pwd/com/stmp}"
+  elif [[ "${pwd}" == */com/* ]]; then
+    stmp=${pwd}
+    com=${com/stmp/com}
+    log=${com/\/rrfs./\/logs\/rrfs.}
+    echo "logs: ${log}"
+    echo "com: ${com}"
+    echo "stmp: ${stmp}"
+  fi
+fi
