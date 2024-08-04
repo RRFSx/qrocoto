@@ -17,13 +17,15 @@ else
     echo "stmp: ${com/com/stmp}"
   elif [[ "${pwd}" == */com/* ]]; then
     log=${pwd/\/rrfs./\/logs\/rrfs.}
+    log=${pwd/\/ens./\/logs\/ens.}
     echo "logs: ${log}"
     echo "com: ${pwd}"
     echo "stmp: ${pwd/com/stmp}"
-  elif [[ "${pwd}" == */com/* ]]; then
+  elif [[ "${pwd}" == */stmp/* ]]; then
     stmp=${pwd}
-    com=${com/stmp/com}
+    com=${stmp/stmp/com}
     log=${com/\/rrfs./\/logs\/rrfs.}
+    log=${com/\/ens./\/logs\/ens.}
     echo "logs: ${log}"
     echo "com: ${com}"
     echo "stmp: ${stmp}"
