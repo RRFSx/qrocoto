@@ -22,10 +22,11 @@ else
     echo "com: ${pwd}"
     echo "stmp: ${pwd/com/stmp}"
   elif [[ "${pwd}" == */stmp/* ]]; then
+    set -x #gge.debug
     stmp=${pwd}
     com=${stmp/stmp/com}
     log=${com/\/rrfs./\/logs\/rrfs.}
-    log=${com/\/ens./\/logs\/ens.}
+    log=${log/\/ens./\/logs\/ens.}
     echo "logs: ${log}"
     echo "com: ${com}"
     echo "stmp: ${stmp}"
