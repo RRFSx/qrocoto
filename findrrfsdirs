@@ -16,8 +16,9 @@ else
     echo "com: ${com}"
     echo "stmp: ${com/com/stmp}"
   elif [[ "${pwd}" == */com/* ]]; then
+    set -x
     log=${pwd/\/rrfs./\/logs\/rrfs.}
-    log=${pwd/\/ens./\/logs\/ens.}
+    log=${log/\/ens./\/logs\/ens.}
     echo "logs: ${log}"
     echo "com: ${pwd}"
     echo "stmp: ${pwd/com/stmp}"
