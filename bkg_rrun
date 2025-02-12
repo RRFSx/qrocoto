@@ -1,8 +1,9 @@
 #!/bin/bash
 
 sleeptime=${1:-60}
+cycle=$1
 
 while true; do
- rrun
+ rrun ${cycle}
  sleep ${sleeptime}
 done
