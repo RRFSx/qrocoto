@@ -1,7 +1,16 @@
 #!/bin/bash
 
-sleeptime=${1:-60}
-cycle=$1
+cycle=""
+sleeptime=60
+tmp=$1
+if (( ${#tmp} < 8 )); then
+  sleeptime=${tmp}
+else
+  cycle=$1
+fi
+if [[ "${cycle}" == "" ]]; then
+  cycle=$2
+fi
 
 while true; do
  rrun ${cycle}
