@@ -13,21 +13,22 @@ else
   if [[ "${pwd}" == */logs/* ]]; then
     echo "logs: ${pwd}"
     com=${pwd/\/logs/}
+    stmp=${pwd/com/stmp}
+    stmp=${stmp%%stmp/*}
     echo "com: ${com}"
-    echo "stmp: ${com/com/stmp}"
+    echo "stmp: ${stmp}stmp"
   elif [[ "${pwd}" == */com/* ]]; then
-    log=${pwd/\/rrfs./\/logs\/rrfs.}
-    log=${log/\/ens./\/logs\/ens.}
+    log=${pwd/\/rrfsdet./\/logs\/rrfsdet.}
+    log=${log/\/rrfsens./\/logs\/rrfsens.}
+    stmp=${pwd/com/stmp}
+    stmp=${stmp%%stmp/*}
     echo "logs: ${log}"
     echo "com: ${pwd}"
-    echo "stmp: ${pwd/com/stmp}"
+    echo "stmp: ${stmp}stmp"
   elif [[ "${pwd}" == */stmp/* ]]; then
-    stmp=${pwd}
-    com=${stmp/stmp/com}
-    log=${com/\/rrfs./\/logs\/rrfs.}
-    log=${log/\/ens./\/logs\/ens.}
-    echo "logs: ${log}"
-    echo "com: ${com}"
+    stmp=${pwd%%stmp/*}
+    echo "logs: ${stmp}com/rrfs/*/logs"
+    echo "com: ${stmp}com/rrfs"
     echo "stmp: ${stmp}"
   fi
 fi
