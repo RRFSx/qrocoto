@@ -6,11 +6,15 @@ if [[ -s exp.setup ]]; then
   # this is the expdir
   source exp.setup
   echo "expdir: ${EXPDIR}"
+  echo "logs: ${COMROOT}/${NET}/${VERSION}/logs"
   echo "com: ${COMROOT}/${NET}/${VERSION}"
   echo "stmp: ${DATAROOT}/${NET}/${VERSION}"
 else
   pwd=${PWD}
   if [[ "${pwd}" == */logs/* ]]; then
+    expdir=${pwd/com/expdir}
+    expdir=${expdir%%expdir/*}
+    echo "expdir: ${expdir}exp"
     echo "logs: ${pwd}"
     com=${pwd/\/logs/}
     stmp=${pwd/com/stmp}
@@ -18,6 +22,9 @@ else
     echo "com: ${com}"
     echo "stmp: ${stmp}stmp"
   elif [[ "${pwd}" == */com/* ]]; then
+    expdir=${pwd/com/expdir}
+    expdir=${expdir%%expdir/*}
+    echo "expdir: ${expdir}exp"
     log=${pwd/\/rrfsdet./\/logs\/rrfsdet.}
     log=${log/\/rrfsens./\/logs\/rrfsens.}
     stmp=${pwd/com/stmp}
@@ -27,6 +34,7 @@ else
     echo "stmp: ${stmp}stmp"
   elif [[ "${pwd}" == */stmp/* ]]; then
     stmp=${pwd%%stmp/*}
+    echo "com: ${stmp}exp"
     echo "logs: ${stmp}com/rrfs/*/logs"
     echo "com: ${stmp}com/rrfs"
     echo "stmp: ${stmp}"
