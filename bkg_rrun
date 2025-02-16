@@ -2,14 +2,16 @@
 
 cycle=""
 sleeptime=60
-tmp=$1
-if (( ${#tmp} < 8 )); then
-  sleeptime=${tmp}
-else
-  cycle=$1
-fi
-if [[ "${cycle}" == "" ]]; then
-  cycle=$2
+if (( $# > 0 )); then
+  tmp=$1
+  if (( ${#tmp} < 8 )); then
+    sleeptime=${tmp}
+  else
+    cycle=$1
+  fi
+  if [[ "${cycle}" == "" ]]; then
+    cycle=$2
+  fi
 fi
 
 while true; do
