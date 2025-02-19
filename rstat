@@ -67,7 +67,7 @@ if [[ -z "${cycles}" ]]; then # use current cycle or apply offset
   if [[ -z "${retro}" ]] ; then
     all=$(rocotostat -w ${xmlfile}.xml -d ${xmlfile}.db -s |grep "  Active  " | cut -c1-12 | xargs -n 6)
     if [[ -z "${all}" ]]; then
-      echo "This is a retro workflow, no active cycles"
+      echo "This is a retro workflow, no active cycles, use rstat YYYYMMDDHH"
       rinfo
       exit
     fi
