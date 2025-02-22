@@ -71,10 +71,8 @@ if [[ -z "${cycles}" ]]; then # use current cycle or apply offset
       rinfo
       exit
     fi
-    echo "retro run, active cycles:"
-    echo ${all}
     cycles=${all:0:12}
-    echo "curret cycle=first active cycle=${cycles} "
+    echo "curret cycle=${cycles} "
   else # realtime
     cycles=$(date -u +%Y%m%d%H00)
     echo "realtime workflow, current cycle= ${cycles}"
