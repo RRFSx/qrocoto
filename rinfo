@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=all
 # a wrapper to rocotostat to get a general info about a rocoto workflow
 # by Guoqing Ge, 2019/04
 #

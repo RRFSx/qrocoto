@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=all
 
 cycle=""
 sleeptime=60

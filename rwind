@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=all
 # a wrapper to rocotorewind
 # by Guoqing Ge, 2019/04
 #

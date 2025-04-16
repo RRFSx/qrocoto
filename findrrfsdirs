@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=all
 # find rrfs directories for an experiment
 # by Guoqing Ge, 2024/07
 #
