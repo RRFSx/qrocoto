@@ -1,9 +1,13 @@
 # qrocoto
+https://github.com/RRFSx/qrocoto  
+    
 A collection of scripts that wrap the rocoto* commands to help us check the workflow status **Q**uickly.
-
+    
+Available commands and usages:  
 **rinfo**  
 **rrun**  
 **rstat**  
+  
 **rboot, rcheck, rwind, rcomplete, rstat, rrun** can all run as follows:
 ```
   rwind <YYYYMMDDHHMM> <tasks> (or <-m=metatasks>)  
