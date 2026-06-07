@@ -17,8 +17,8 @@ Available commands and usages:
 **rtasks <tasks>**  
 `eg. rtasks jedivar`  
 
-**findrrfsdirs**  
-**checkrrfsxml**  
+**finddirs**  
+**checkxml**  
 **bkg_rrun [seconds]**  
 `  eg. bkg_rrun 30`
 
